@@ -5,77 +5,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Responsive Registration Form | CodingLab </title>
+  <title> Update voucher </title>
   <link rel="stylesheet" href="edit_style.css">
 </head>
 <body>
   <div class="container">
     <!-- Title section -->
-    <div class="title">Update customer information</div>
+    <div class="title">Update voucher</div>
     <div class="content">
       <!-- Registration form -->
       <form action="update" method="POST">
         <div class="user-details">
-          <!-- Customer ID -->
+          <!-- Voucher ID -->
           <div class="input-box">
-            <span class="details">Customer ID</span>
-            <input value="${cus.userId}" type="text" placeholder="Enter Customer ID" required name ="cusid" readonly>
+            <span class="details">Voucher ID</span>
+            <input value="${vc.vid}" type="text" required name ="vid" readonly>
           </div>
-          <!-- Input for Customer Name -->
+          <!-- Input for Voucher Description -->
           <div class="input-box">
-            <span class="details">Full Name</span>
-            <input value="${cus.fullname}" type="text" placeholder="Enter customer name" required name="cusname">
+            <span class="details">Description</span>
+            <input value="${vc.des}" type="text" required name="des">
           </div>
-          <!-- Input for Address -->
+          <!-- Input for Discount -->
           <div class="input-box">
-            <span class="details">Address</span>
-            <input value="${cus.address}" type="text" placeholder="Enter customer address" required name="cusaddress">
+            <span class="details">Discount</span>
+            <input value="${vc.discount}" type="text" required name="discount">
           </div>
-          <!-- Input for Email -->
+          <!-- Input for Price -->
           <div class="input-box">
-            <span class="details">Email</span>
-            <input value="${cus.email}" type="text" placeholder="Enter customer email" required name="cusemail">
+            <span class="details">Minimum price</span>
+            <input value="${vc.price}" type="text" required name="price">
           </div>
-          <!-- Input for Phone Number -->
+          <!-- Input for Quantity -->
           <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input value="${cus.phone}" type="text" placeholder="Enter customer number" required name="cusphone">
+            <span class="details">Quantity</span>
+            <input value="${vc.quantity}" type="text" required name="quantity">
           </div>
-          <!-- Input for Date of Birth -->
+          <!-- Input for Manufacturing date -->
           <div class="input-box">
-            <span class="details">Date of Birth</span>
-            <input value="${cus.dob}" type="text" placeholder="yyyy-mm-dd" required name="cusdob">
+            <span class="details">Manufacturing date</span>
+            <input value="${vc.mfg}" type="text"  required name="mfg">
           </div>
-          <!-- Input for ID Card Number -->
+          <!-- Input for Expiry date -->
           <div class="input-box">
-            <span class="details">ID Card Number</span>
-            <input value="${cus.cid}" type="text" placeholder="Enter customer ID Card Number" required name="cuscid">
-          </div>
-          <!-- Link image -->
-          <div class="input-box">
-            <span class="details">Avatar</span>
-            <input value="${cus.avatar}" type="text" required name="cusavt">
-          </div>
+            <span class="details">Expiry date</span>
+            <input value="${vc.exp}" type="text"  required name="exp">
         </div>
-        <div class="gender-details">
-          <!-- Radio buttons for gender selection -->
-            <input type="radio" name="gender" id="dot-1" value="1" ${cus.gender == true ? 'checked="checked"' : ''}>
-			<input type="radio" name="gender" id="dot-2" value="0" ${cus.gender != true ? 'checked="checked"' : ''}>
-
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <!-- Label for Male -->
-            <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">Male</span>
-            </label>
-            <!-- Label for Female -->
-            <label for="dot-2">
-              <span class="dot two"></span>
-              <span class="gender">Female</span>
-            </label>
-            
-          </div>
         </div>
         <!-- Submit button -->
         <div class="button">

@@ -1,4 +1,4 @@
-package com.webapp3rdyear.controller.user.customer;
+package com.webapp3rdyear.controller.user.seller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,23 +8,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.webapp3rdyear.dao.UsersDAO;
-import com.webapp3rdyear.enity.Accounts;
 import com.webapp3rdyear.enity.Users;
 
-
-
 /**
- * Servlet implementation class UpdateCustomerController
+ * Servlet implementation class UpdateSellerController
  */
-@WebServlet(urlPatterns = {"/customers/update"})
 
-public class UpdateCustomerController extends HttpServlet {
+@WebServlet(urlPatterns = {"/sellers/update"})
+public class UpdateSellerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateCustomerController() {
+    public UpdateSellerController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,9 +33,9 @@ public class UpdateCustomerController extends HttpServlet {
 		try {
 			String id = request.getParameter("sid");
 			UsersDAO dao = new UsersDAO();
-			Users a = dao.getCustomerByID(id);
+			Users a = dao.getSellerByID(id);
 			request.setAttribute("cus", a);
-			request.getRequestDispatcher("/view/customer/update.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/seller/update.jsp").forward(request, response);
 		} catch  (Exception e){
 			System.out.println(e);
 		}
@@ -56,12 +53,13 @@ public class UpdateCustomerController extends HttpServlet {
 		String Dob = request.getParameter("cusdob");
 		String cid = request.getParameter("cuscid");
 		String avatar = request.getParameter("cusavt");
+		int kpi = Integer.parseInt(request.getParameter("cuskpi"));
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		
 		UsersDAO dao = new UsersDAO();
-		dao.updateCustomer( fullname, address, email, phone, Dob,
-				cid, avatar, gender, userId );
-		response.sendRedirect("/Webapp_3rdYear/customers");
+		dao.updateSeller( fullname, address, email, phone, Dob,
+				cid, avatar, kpi, gender, userId );
+		response.sendRedirect("/Webapp_3rdYear/sellers");
 	}
 
 }

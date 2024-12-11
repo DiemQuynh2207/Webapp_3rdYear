@@ -5,41 +5,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Responsive Registration Form | CodingLab </title>
+  <title> Update Seller </title>
   <link rel="stylesheet" href="edit_style.css">
 </head>
 <body>
   <div class="container">
     <!-- Title section -->
-    <div class="title">Update customer information</div>
+    <div class="title">Update seller information</div>
     <div class="content">
       <!-- Registration form -->
       <form action="update" method="POST">
         <div class="user-details">
           <!-- Customer ID -->
           <div class="input-box">
-            <span class="details">Customer ID</span>
-            <input value="${cus.userId}" type="text" placeholder="Enter Customer ID" required name ="cusid" readonly>
+            <span class="details">Seller ID</span>
+            <input value="${cus.userId}" type="text" placeholder="Enter ID" required name ="cusid" readonly>
           </div>
           <!-- Input for Customer Name -->
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input value="${cus.fullname}" type="text" placeholder="Enter customer name" required name="cusname">
+            <input value="${cus.fullname}" type="text" placeholder="Enter name" required name="cusname">
           </div>
           <!-- Input for Address -->
           <div class="input-box">
             <span class="details">Address</span>
-            <input value="${cus.address}" type="text" placeholder="Enter customer address" required name="cusaddress">
+            <input value="${cus.address}" type="text" placeholder="Enter address" required name="cusaddress">
           </div>
           <!-- Input for Email -->
           <div class="input-box">
             <span class="details">Email</span>
-            <input value="${cus.email}" type="text" placeholder="Enter customer email" required name="cusemail">
+            <input value="${cus.email}" type="text" placeholder="Enter email" required name="cusemail">
           </div>
           <!-- Input for Phone Number -->
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input value="${cus.phone}" type="text" placeholder="Enter customer number" required name="cusphone">
+            <input value="${cus.phone}" type="text" placeholder="Enter number" required name="cusphone">
           </div>
           <!-- Input for Date of Birth -->
           <div class="input-box">
@@ -49,12 +49,17 @@
           <!-- Input for ID Card Number -->
           <div class="input-box">
             <span class="details">ID Card Number</span>
-            <input value="${cus.cid}" type="text" placeholder="Enter customer ID Card Number" required name="cuscid">
+            <input value="${cus.cid}" type="text" placeholder="Enter ID Card Number" required name="cuscid">
           </div>
           <!-- Link image -->
           <div class="input-box">
             <span class="details">Avatar</span>
             <input value="${cus.avatar}" type="text" required name="cusavt">
+          </div>
+           <!-- KPI -->
+          <div class="input-box">
+            <span class="details">KPI</span>
+            <input value="${cus.kpi}" type="text" placeholder="Enter KPI" required name="cuskpi">
           </div>
         </div>
         <div class="gender-details">
@@ -261,4 +266,6 @@
 	}
   </style>
 </body>
+
+
 </html>

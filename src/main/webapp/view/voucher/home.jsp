@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -8,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shipper Management</title>
+    <title>Voucher Management</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="style.css">
@@ -42,7 +43,7 @@
                     <span class="material-symbols-sharp">face_2</span>
                     <h3>Accounts</h3>
                 </a>
-                <a href="/Webapp_3rdYear/vouchers">
+                <a href="#" class="active">
                     <span class="material-symbols-sharp">yard</span>
                     <h3>Vouchers</h3>
                 </a>
@@ -68,9 +69,9 @@
                         <h3>Users</h3>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="/Webapp_3rdYear/customers"  >Customer</a>
-                        <a href="/Webapp_3rdYear/sellers" >Seller</a>
-                        <a href="/Webapp_3rdYear/shippers" class="active">Shipper</a>
+                        <a href="/Webapp_3rdYear/customers">Customer</a>
+                        <a href="/Webapp_3rdYear/sellers">Seller</a>
+                        <a href="/Webapp_3rdYear/shippers">Shipper</a>
                     </div>
                 </div>
                 
@@ -86,7 +87,7 @@
         <main>
             <div class="info-page">
                 <div class="left-header">
-                    <h1>Shipper management</h1>
+                    <h1>Vouchers management</h1>
                 </div>
                 <div class="right-header">
                     <button id="menu_bar">
@@ -113,12 +114,13 @@
 
             <div class="address">
                 <!-- <input type="date"> -->
-                <th>Home/Users/Shipper</th>
+                <th>Home/Vouchers</th>
             </div>
             <div class="btn">
 			    <i class="fa-solid fa-pencil"></i>
-			    <a href="shippers/add" class="btn-add">New Shipper</a>
+			    <a href="vouchers/add" class="btn-add">New Voucher</a>
 			</div>
+
             <!-- start accounts_table -->
             <div class="operation-management">
                 <div class="selection">
@@ -144,59 +146,49 @@
                 <table>
                     <thread>
                         <tr>
-                            <th>Shipper ID</th>
-                            <th>Full Name</th>
-                            <th>Address</th>
-                            <th>Gender</th>
-                            <th>Phone Number</th>
-                            <th>Date of Birth</th>
-                            <th>ID Card Number</th>
-                            <th>Area</th>
-                            <th>Email</th>
+                            <th>Voucher ID</th>
+                            <th>Description</th>
+                            <th>Discount</th>
+                            <th>Minimum Price</th>
+                            <th>Quantity</th>
+                            <th>Manufacturing date</th>
+                            <th>Expiry date</th>
                             <th>Edit</th>
                         </tr>
                     </thread>
                     <tbody>
-						<c:forEach items="${listS}" var="x">
-                        <tr>
-                            <td>${x.userId }</td>
-	                          	<td>${x.fullname }</td>
-	                          	<td>${x.address }</td>
-	                          	<td>
-	                          		<c:if test="${x.gender}">
-						                Male
-						            </c:if>
-						            <c:if test="${!x.gender}">
-						                Female
-						            </c:if>
-	                          	</td>
-	                          	<td>${x.phone }</td>
-	                          	<td>${x.dob }</td>
-	                          	<td>${x.cid }</td>
-	                          	<td>${x.area }</td>
-	                          	<td>${x.email}</td> 
-	                          	
-                            <!-- <td class="warning">Pending</td> -->
-                            <td class="ope-btn">
-                                <!--  Update -->
-	                                <form action="shippers/update" method="GET" style="display: inline;">
-									    <input type="hidden" name="sid" value="${x.userId}">
+                    
+                       <c:forEach items="${listS}" var="x">
+
+	                        <tr>
+	                            <td>${x.vid}</td>
+	                          	<td>${x.des }</td>
+	                          	<td>${x.discount }</td>
+	                          	<td>${x.price}</td>
+	                          	<td>${x.quantity }</td>
+	                          	<td>${x.mfg }</td> 
+	                          	<td>${x.exp }</td> 
+	                            <td class="ope-btn">
+	                                <!--  Update -->
+	                                <form action="vouchers/update" method="GET" style="display: inline;">
+									    <input type="hidden" name="sid" value="${x.vid}">
 									    <button class="btn-edit" type="submit">
 									        <i class="fa-solid fa-pencil"></i>
 									    </button>
 									</form>
-                                <!--  Delete -->
-							    <form style="display: inline;" id="deleteForm${x.userId}" action="${pageContext.request.contextPath}/deleteShipper" method="POST" onsubmit="event.preventDefault(); showMess(${x.userId});">
-								    <input type="hidden" name="id" value="${x.userId}" />
-								    <button class="btn-delete" type="submit">
-								        <i class="fa-solid fa-trash-can"></i>
-								    </button>
-								</form>
-                                <button class="btn-details"><i class="fa-solid fa-circle-info"></i></button>
-                            </td>
-                        </tr>
-						</c:forEach>
+                                	
+                                	<!--  Delete -->
+								    <form style="display: inline;" onsubmit="event.preventDefault(); showMess(${x.vid});">
+									  <button class="btn-delete" type="submit">
+									    <i class="fa-solid fa-trash-can"></i>
+									  </button>
+									</form>
 
+									
+	                                
+	                            </td>
+	                        </tr>
+						</c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -333,7 +325,6 @@
 		
 		aside{
 		    height:100vh;
-    		width: 180px;
 		}
 		aside .top{
 		    background-color: var(--clr-white);
@@ -884,10 +875,10 @@
 	        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 	    });
 	    
-	    function showMess (userId){
+	    function showMess (vid){
 	    	var option = confirm ('Are you sure to delete?');
 	    	if (option === true){
-	    		window.location.href = 'deleteshipper?sid='+userId;
+	    		window.location.href = 'deletevoucher?sid='+vid;
 	    	}
 	    }
 	    

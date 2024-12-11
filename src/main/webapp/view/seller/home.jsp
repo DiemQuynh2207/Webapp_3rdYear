@@ -42,7 +42,7 @@
                     <span class="material-symbols-sharp">face_2</span>
                     <h3>Accounts</h3>
                 </a>
-                <a href="#">
+                <a href="/Webapp_3rdYear/vouchers">
                     <span class="material-symbols-sharp">yard</span>
                     <h3>Vouchers</h3>
                 </a>
@@ -164,10 +164,10 @@
 	                          	<td>${x.address }</td>
 	                          	<td>
 	                          		<c:if test="${x.gender}">
-						                Female
+						               Male
 						            </c:if>
 						            <c:if test="${!x.gender}">
-						                Male 
+						               Female 
 						            </c:if>
 	                          	</td>
 	                          	<td>${x.phone }</td>
@@ -178,7 +178,13 @@
 	                          	
                             <!-- <td class="warning">Pending</td> -->
                             <td class="ope-btn">
-                                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></button>
+                                <!--  Update -->
+	                                <form action="sellers/update" method="GET" style="display: inline;">
+									    <input type="hidden" name="sid" value="${x.userId}">
+									    <button class="btn-edit" type="submit">
+									        <i class="fa-solid fa-pencil"></i>
+									    </button>
+									</form>
                                 <!--  Delete -->
 							    <form style="display: inline;" id="deleteForm${x.userId}" action="${pageContext.request.contextPath}/deleteSeller" method="POST" onsubmit="event.preventDefault(); showMess(${x.userId});">
 								    <input type="hidden" name="id" value="${x.userId}" />

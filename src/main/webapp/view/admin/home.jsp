@@ -42,7 +42,7 @@
                     <span class="material-symbols-sharp">face_2</span>
                     <h3>Accounts</h3>
                 </a>
-                <a href="#">
+                <a href="/Webapp_3rdYear/vouchers">
                     <span class="material-symbols-sharp">yard</span>
                     <h3>Vouchers</h3>
                 </a>

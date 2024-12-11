@@ -1,4 +1,4 @@
-package com.webapp3rdyear.controller.user.customer;
+package com.webapp3rdyear.controller.user.shipper;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,23 +8,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.webapp3rdyear.dao.UsersDAO;
-import com.webapp3rdyear.enity.Accounts;
 import com.webapp3rdyear.enity.Users;
 
-
-
 /**
- * Servlet implementation class UpdateCustomerController
+ * Servlet implementation class UpdateShipperController
  */
-@WebServlet(urlPatterns = {"/customers/update"})
+@WebServlet(urlPatterns = {"/shippers/update"})
 
-public class UpdateCustomerController extends HttpServlet {
+public class UpdateShipperController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateCustomerController() {
+    public UpdateShipperController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,9 +33,9 @@ public class UpdateCustomerController extends HttpServlet {
 		try {
 			String id = request.getParameter("sid");
 			UsersDAO dao = new UsersDAO();
-			Users a = dao.getCustomerByID(id);
+			Users a = dao.getShipperByID(id);
 			request.setAttribute("cus", a);
-			request.getRequestDispatcher("/view/customer/update.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/shipper/update.jsp").forward(request, response);
 		} catch  (Exception e){
 			System.out.println(e);
 		}
@@ -56,12 +53,14 @@ public class UpdateCustomerController extends HttpServlet {
 		String Dob = request.getParameter("cusdob");
 		String cid = request.getParameter("cuscid");
 		String avatar = request.getParameter("cusavt");
+		String area = request.getParameter("cusarea");
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		
 		UsersDAO dao = new UsersDAO();
-		dao.updateCustomer( fullname, address, email, phone, Dob,
-				cid, avatar, gender, userId );
-		response.sendRedirect("/Webapp_3rdYear/customers");
+		dao.updateSeller( fullname, address, email, phone, Dob,
+				cid, avatar, area, gender, userId );
+		response.sendRedirect("/Webapp_3rdYear/shippers");
 	}
+	
 
 }

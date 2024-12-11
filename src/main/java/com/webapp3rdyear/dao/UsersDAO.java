@@ -284,4 +284,139 @@ public class UsersDAO {
 		}
 		return null;
 	}
+	
+	public void updateCustomer (String fullname,String address,String email,String phone,String dob,
+			String cid,String avatar, int gender, String userId )
+	{
+		String query = "UPDATE gardencentre.users SET Fullname = ?, Address = ?, \r\n"
+				+ "Email = ?, Phone = ?, Dob = ?, cid = ?, avatar = ?, gender = ?\r\n"
+				+ "WHERE  UserID = ?";
+		try {
+			conn = DBConnectSQL.getDatabaseConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, fullname);
+			ps.setString(2, address);
+			ps.setString(3,email);
+			ps.setString(4, phone);
+			ps.setString(5, dob);
+			ps.setString(6,cid);
+			ps.setString(7, avatar);
+			ps.setInt(8, gender);
+			ps.setString(9,userId);
+			ps.executeUpdate();
+			conn.close();
+			ps.close();
+		} catch  (Exception e){
+			
+		}
+	}
+	
+	public Users getSellerByID (String id){
+		
+		String query = "SELECT userid, fullname, address, email, phone, dob, cid, avatar,kpi, gender FROM USERS WHERE UserID = ?";
+		try {
+			conn = DBConnectSQL.getDatabaseConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				return new Users(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getInt(9),
+						rs.getBoolean(10));
+			}
+		
+		} catch  (Exception e){
+			
+		}
+		return null;
+	}
+
+	public void updateSeller (String fullname,String address,String email,String phone,String dob,
+			String cid,String avatar, int kpi, int gender, String userId )
+	{
+		String query = "UPDATE gardencentre.users SET Fullname = ?, Address = ?, \r\n"
+				+ "Email = ?, Phone = ?, Dob = ?, cid = ?, avatar = ?, KPI = ?, gender = ?\r\n"
+				+ "WHERE  UserID = ?";
+		try {
+			conn = DBConnectSQL.getDatabaseConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, fullname);
+			ps.setString(2, address);
+			ps.setString(3,email);
+			ps.setString(4, phone);
+			ps.setString(5, dob);
+			ps.setString(6,cid);
+			ps.setString(7, avatar);
+			ps.setInt(8, kpi);
+			ps.setInt(9, gender);
+			ps.setString(10,userId);
+			ps.executeUpdate();
+			conn.close();
+			ps.close();
+		} catch  (Exception e){
+			
+		}
+	}
+	
+	public Users getShipperByID (String id){
+		
+		String query = "SELECT userid, fullname, address, email, phone, dob, cid, avatar, area, gender FROM USERS WHERE UserID = ?";
+		try {
+			conn = DBConnectSQL.getDatabaseConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				return new Users(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9),
+						rs.getBoolean(10));
+			}
+		
+		} catch  (Exception e){
+			
+		}
+		return null;
+	}
+
+	public void updateSeller (String fullname,String address,String email,String phone,String dob,
+			String cid,String avatar, String area, int gender, String userId )
+	{
+		String query = "UPDATE gardencentre.users SET Fullname = ?, Address = ?, \r\n"
+				+ "Email = ?, Phone = ?, Dob = ?, cid = ?, avatar = ?, Area = ?, gender = ?\r\n"
+				+ "WHERE  UserID = ?";
+		try {
+			conn = DBConnectSQL.getDatabaseConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, fullname);
+			ps.setString(2, address);
+			ps.setString(3,email);
+			ps.setString(4, phone);
+			ps.setString(5, dob);
+			ps.setString(6,cid);
+			ps.setString(7, avatar);
+			ps.setString(8, area);
+			ps.setInt(9, gender);
+			ps.setString(10,userId);
+			ps.executeUpdate();
+			conn.close();
+			ps.close();
+		} catch  (Exception e){
+			
+		}
+	}
 }
+

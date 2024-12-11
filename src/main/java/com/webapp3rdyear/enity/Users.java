@@ -53,6 +53,38 @@ public class Users {
 		this.gender = gender;
 	}
 	
+	// Seller
+		public Users(int userId, String fullname, String address,String email, String phone, String Dob, String cid,
+				String avatar, Integer kpi,  boolean gender) {
+			super();
+			this.userId = userId;
+			this.fullname = fullname;
+			this.address = address;
+			this.email = email;
+			this.phone = phone;
+			this.Dob = Dob;
+			this.cid = cid;
+			this.avatar = avatar;
+			this.kpi = kpi;
+			this.gender = gender;
+		}
+	
+		// Shipper
+				public Users(int userId, String fullname, String address,String email, String phone, String Dob, String cid,
+						String avatar, String area,  boolean gender) {
+					super();
+					this.userId = userId;
+					this.fullname = fullname;
+					this.address = address;
+					this.email = email;
+					this.phone = phone;
+					this.Dob = Dob;
+					this.cid = cid;
+					this.avatar = avatar;
+					this.area = area;
+					this.gender = gender;
+				}
+		
 	public int getUserId() {
 		return userId;
 	}

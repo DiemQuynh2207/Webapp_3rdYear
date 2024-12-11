@@ -1,82 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ include file="/commons/taglibs.jsp"%> 
+       <%@ include file="/commons/taglibs.jsp"%> 
+   
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Add new customer </title>
+  <title>Add new voucher</title>
   <link rel="stylesheet" href="edit_style.css">
 </head>
 <body>
   <div class="container">
     <!-- Title section -->
-    <div class="title">Add new customer</div>
+    <div class="title">Add new voucher</div>
     <div class="content">
       <!-- Registration form -->
-      <form action="<c:url value='/customers/add'></c:url>" method="POST">
-        <div class="user-details">
-          <!-- Input for Full Name -->
-          <div class="input-box">
-            <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" required name="fullname">
-          </div>
-          <!-- Input for Address -->
-          <div class="input-box">
-            <span class="details">Address</span>
-            <input type="text" placeholder="Enter your addess" required name="address">
-          </div>
-          <!-- Input for Email -->
-          <div class="input-box">
-            <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" required name="email">
-          </div>
-          <!-- Input for Phone Number -->
-          <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" required name="phone">
-          </div>
-          <!-- Input for Date of Birth -->
-          <div class="input-box">
-            <span class="details">Date of Birth</span>
-            <input type="text" placeholder="yyyy-mm-dd" required name="Dob">
-          </div>
-          <!-- Input for ID Card Number -->
-          <div class="input-box">
-            <span class="details">ID Card Number</span>
-            <input type="text" placeholder="Enter your ID Card Number" required name="cid">
-          </div>
-          <!-- Link image -->
-          <div class="input-box">
-            <span class="details">Avatar</span>
-            <input type="text" required name="avatar">
-          </div>
-          <!-- Link Account name -->
-          <div class="input-box">
-            <span class="details">Account name</span>
-            <input type="text" required name ="uaname">
+      <form action="<c:url value='/insertvoucher'></c:url>" method="post">
 
+        <div class="user-details">
+          <!-- Input for Description -->
+          <div class="input-box">
+            <span class="details">Description</span>
+            <input type="text" placeholder="Enter description" required name="des">
           </div>
-        </div>
-        <div class="gender-details">
-          <!-- Radio buttons for gender selection -->
-          <input type="radio" name="gender" id="dot-1"  name="true">
-          <input type="radio" name="gender" id="dot-2"  name="false">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <!-- Label for Male -->
-            <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">Male</span>
-            </label>
-            <!-- Label for Female -->
-            <label for="dot-2">
-<span class="dot two"></span>
-              <span class="gender">Female</span>
-            </label>
-        
+          <!-- Input for Discount -->
+          <div class="input-box">
+            <span class="details">Discount</span>
+            <input type="text" placeholder="Enter your discount" required name="discount">
           </div>
+          <!-- Input for Minimum Price -->
+          <div class="input-box">
+            <span class="details">Minimum Price</span>
+            <input type="text" placeholder="Enter minimum price" required name="price">
+          </div>
+          <!-- Input for Quantity-->
+          <div class="input-box">
+            <span class="details">Quantity</span>
+            <input type="text" placeholder="Enter quantity" required name="quantity">
+          </div>
+          <!-- Input for Manufacturing date -->
+          <div class="input-box">
+            <span class="details">Manufacturing date</span>
+            <input type="text" placeholder="yyyy-mm-dd" required name="mfg">
+          </div>
+          <!-- Input for Expiry date -->
+          <div class="input-box">
+            <span class="details">Expiry date</span>
+            <input type="text" placeholder="yyyy-mm-dd" required name="exp">
+          </div>
+          
+  
         </div>
         <!-- Submit button -->
         <div class="button">
